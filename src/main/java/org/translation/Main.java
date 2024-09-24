@@ -75,9 +75,11 @@ public class Main {
         CountryCodeConverter converter = new CountryCodeConverter();
         for (int i = 0; i < countrycodes.size(); i++) {
             String code = countrycodes.get(i);
-            countrycodes.set(i, converter.fromCountryCode(code));  // TODO: For some reason, this line breaks when you do one runthrough then press enter again.
+            if (converter.fromCountryCode(code) != null) {
+                countrycodes.set(i, converter.fromCountryCode(code));
+            }
         }
-        java.util.Collections.sort(countrycodes);
+        java.util.Collections.sort(countrycodes);  // TODO: For some reason, this line breaks when you do one runthrough then press enter again.
         for (String country : countrycodes) {
             System.out.println(country);
         }

@@ -15,8 +15,8 @@ import org.json.JSONObject;
  */
 public class JSONTranslator implements Translator {
 
-    private static Map<String, JSONObject> countriesJSON = new HashMap();
     private static String alpha3 = "alpha3";
+    private Map<String, JSONObject> countriesJSON = new HashMap();
     private List<String> countriesList = new ArrayList<>();
 
     /**
@@ -42,8 +42,6 @@ public class JSONTranslator implements Translator {
                 countriesJSON.put(jsonArray.getJSONObject(i).getString(alpha3), jsonArray.getJSONObject(i));
                 countriesList.add(jsonArray.getJSONObject(i).getString(alpha3));
             }
-            System.out.println(jsonArray.length());
-            System.out.println(countriesList.size());
 
         }
         catch (IOException | URISyntaxException ex) {
