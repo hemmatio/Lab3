@@ -21,6 +21,7 @@ public class CountryCodeConverter {
      * in the resources folder.
      */
     public CountryCodeConverter() {
+        // calls the overloaded constructor
         this("country-codes.txt");
     }
 
@@ -53,7 +54,7 @@ public class CountryCodeConverter {
      * @return the name of the country corresponding to the code
      */
     public String fromCountryCode(String code) {
-        return countryName.get(code);
+        return countryName.get(code.toUpperCase());
     }
 
     /**
