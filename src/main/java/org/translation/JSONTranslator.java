@@ -53,7 +53,7 @@ public class JSONTranslator implements Translator {
 
     @Override
     public List<String> getCountryLanguages(String country) {
-        JSONObject countryLang = countriesJSON.get(country);
+        JSONObject countryLang = countriesJSON.get(country.toLowerCase());
         ArrayList<String> languages = new ArrayList<>();
         for (Iterator<String> it = countryLang.keys(); it.hasNext();) {
             String key = it.next();
@@ -75,6 +75,6 @@ public class JSONTranslator implements Translator {
         if (!countryLanguages.contains(language)) {
             return null;
         }
-        return countriesJSON.get(country).getString(language);
+        return countriesJSON.get(country.toLowerCase()).getString(language);
     }
 }
